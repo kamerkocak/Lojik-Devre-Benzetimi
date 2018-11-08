@@ -4,7 +4,7 @@
 #include <string.h>
 
 
- //.kapi <kapý tipi> <giriþ sayýsý> <çýkýþ> <giriþ listesi> <kapýnýn giriþlere cevap verme süresi>
+ //.kapi <kapÄ± tipi> <giriÅŸ sayÄ±sÄ±> <Ã§Ä±kÄ±ÅŸ> <giriÅŸ listesi> <kapÄ±nÄ±n giriÅŸlere cevap verme sÃ¼resi>
 
 
 int logTime(int *g)
@@ -14,7 +14,7 @@ int logTime(int *g)
   time_t result;
   result = time(NULL);
   struct tm* brokentime = localtime(&result);
-  fprintf(timelog,asctime(brokentime));             //ya cozumunu bulacaksýn ya da tek tek fonksiyon olusturacaksýn
+  fprintf(timelog,asctime(brokentime));             //ya cozumunu bulacaksÄ±n ya da tek tek fonksiyon olusturacaksÄ±n
  // fprintf(timelog, g);
 
   fputs(g, timelog);
@@ -37,7 +37,7 @@ int main()
 
     if(giris==1)
     {
-        //TUM DOSYA ICERÝGÝNÝ YAZDIRMAK
+        //TUM DOSYA ICERÄ°GÄ°NÄ° YAZDIRMAK
         char c[1000];
         FILE *devre;
         if ((devre = fopen("devre.txt", "r")) == NULL)
@@ -47,7 +47,7 @@ int main()
         }
 
             // reads text until newline    https://www.programiz.com/c-programming/examples/read-file
-        fscanf(devre,"%[^\0]", c); //^\n olursa newline'a kadar okur, \0 oldugunda sonlandýrma karakterine kadar okuyor.
+        fscanf(devre,"%[^\0]", c); //^\n olursa newline'a kadar okur, \0 oldugunda sonlandÄ±rma karakterine kadar okuyor.
 
         printf("%s\n\n", c);
         fclose(devre);
@@ -57,7 +57,7 @@ int main()
     if(giris==2)
     {
 
-        //geri dönücem
+        //geri dÃ¶nÃ¼cem
 
         goto up;
 
@@ -69,7 +69,7 @@ int main()
         int num,*ptr;
         printf("devredeki kac elemanin degerini degistireceksiniz?");
         scanf("%d",num);
-        ptr = (char*) malloc(num * sizeof(char));  // malloc hallet        //ayný cozumu 4. maddede de yap
+        ptr = (char*) malloc(num * sizeof(char));  // malloc hallet        //aynÄ± cozumu 4. maddede de yap
 
         for(i = 0; i < num; ++i)
         {  printf("lojik-1 yapmak istediginiz degeri/degerleri giriniz: ");
@@ -91,7 +91,7 @@ int main()
     if(giris==5)
     {
 
-        //devreyi simule eder(calýstýrýr?)
+        //devreyi simule eder(calÄ±stÄ±rÄ±r?)
         goto up;
     }
 
@@ -99,7 +99,7 @@ int main()
     {
 
 
-        //girilen uclarýn degerlerini konsolda gosterir
+        //girilen uclarÄ±n degerlerini konsolda gosterir
         goto up;
     }
 
@@ -114,59 +114,32 @@ int main()
         }
 
             // reads text until newline    https://www.programiz.com/c-programming/examples/read-file
-        fscanf(deger,"%[^\0]", gyildiz); //^\n olursa newline'a kadar okur, \0 oldugunda sonlandýrma karakterine kadar okuyor.
+        fscanf(deger,"%[^\0]", gyildiz); //^\n olursa newline'a kadar okur, \0 oldugunda sonlandÄ±rma karakterine kadar okuyor.
 
         printf("%s\n\n", gyildiz);
         fclose(deger);
 
 
-        //tüm uclarýn degerlerini konsolda gosterir
+        //tÃ¼m uclarÄ±n degerlerini konsolda gosterir
         goto up;
     }
 
     if(giris==8)
     {
-        //komut.txt icindeki komutlarý konsoldan icra eder
+        //komut.txt icindeki komutlarÄ± konsoldan icra eder
         goto up;
     }
 
     if(giris==9)
     {
         //benzetimden cikis yapar
-        //bu komut girilene kadar olan tum komutlarý log dosyasýna tarih saat dakika olarak kaydet
+        //bu komut girilene kadar olan tum komutlarÄ± log dosyasÄ±na tarih saat dakika olarak kaydet
 
         printf("\nBenzetimden cikiliyor...\n");
         exit(0);
 
     }
 
-
-
-
-
-////////        char a[1000];
-////////        char girisdosya[]= ".giris";
-////////        char kapidosya[]=".kapi";
-////////        FILE *devre;
-////////        if ((devre = fopen("devre.txt", "r")) == NULL)
-////////        {
-////////            printf("Error! opening file");
-////////            exit(1);
-////////        }
-////////         fscanf(devre,"%[^\0]", a);
-////////
-////////        char *pointer,*ptr;
-////////        pointer=strstr(a,girisdosya);
-////////        printf("%d\n",pointer);
-////////
-////////        pointer++;
-////////
-////////        printf("%d\n",pointer);
-////////        ptr=strstr(a,"b");
-////////        if(&ptr==&pointer)
-////////        {
-////////            printf("b karakteri bulundu");
-////////        }
 
 
 
