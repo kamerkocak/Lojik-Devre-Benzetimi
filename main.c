@@ -65,19 +65,21 @@ int main()
 
     if(giris==3)
     {
-
-        int num,*ptr;
-        printf("devredeki kac elemanin degerini degistireceksiniz?");
-        scanf("%d",num);
-        ptr = (char*) malloc(num * sizeof(char));  // malloc hallet        //aynı cozumu 4. maddede de yap
-
-        for(i = 0; i < num; ++i)
-        {  printf("lojik-1 yapmak istediginiz degeri/degerleri giriniz: ");
-            scanf("%d", ptr + i);
-
+        int num=0,sayac=0;
+        printf("devredeki kac elemanin degerini degistireceksiniz?:");
+        scanf("%d",&num);
+        printf("Degerini degistireceginiz elemanlari giriniz:");
+        for(i=0;i<(num*2);i++){
+            scanf("%c",&girisler[i]);
         }
-        free(ptr);
-        //girilen degeri/degerleri 1 yapacak
+        for(i=0;i<(num*2);i++){
+            if(girisler[i]!=NULL)
+                sayac++;
+        }
+        printf("Degistirilecek olanlar\n");
+        for(i=0;i<sayac;i++){
+            printf("%c  ",girisler[i]);
+        }
         goto up;
     }
 
