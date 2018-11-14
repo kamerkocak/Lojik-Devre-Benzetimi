@@ -146,12 +146,12 @@ int main()
         fputs("f    0\n",deger_devre);
 
         deger_devre=fopen("deger_devre.txt","r");
-        fscanf(deger_devre,"%c",k.c1);//ÇALIŞMIYOR
-        //fgets(deger_devre,"%s",k.tab);
-        //fscanf(deger_devre,"%d",k.deger1);
+        k.c1=getc(deger_devre);
+        fgets(k.tab, 5, deger_devre);
+        k.deger1=getc(deger_devre);
 
-        printf("%c",k.c1);//CALIŞMIYOR.
-        //printf("%d",k.deger1);
+        printf("%c",k.c1);
+        printf("%c",k.deger1);
         
 
        // goto up;
