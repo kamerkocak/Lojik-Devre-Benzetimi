@@ -2,14 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include <string.h>
-#include <time.h>
 
 
- //.kapi <kapy tipi> <giri? sayysy> <çyky?> <giri? listesi> <kapynyn giri?lere cevap verme süresi>
+ //.kapi <kapý tipi> <giriþ sayýsý> <çýkýþ> <giriþ listesi> <kapýnýn giriþlere cevap verme süresi>
 struct deger_devres1{
     char c1;
     char tab[5];
-    int deger1;
+    char deger1;
 };
 struct deger_devres2{
     char c2;
@@ -71,13 +70,10 @@ struct devres5{
 };
 
 int logTime(char g[3])
-{	
- 
- 	
-	
+{
   FILE *timelog;
   timelog= fopen("logKomut.txt","a+");
-  
+
   fputs(g, timelog);
   time_t result;
   result = time(NULL);
@@ -86,12 +82,7 @@ int logTime(char g[3])
   fprintf(timelog,asctime(brokentime));
   fputs("\n\n\n\n",timelog);
   fclose(timelog);
-
-
 }
-
-
-
 int main()
 {
     int i;
@@ -104,6 +95,11 @@ int main()
     up: printf(">");
     scanf("%s",&giris);
     logTime(giris);
+
+
+    char a,b,c,d,e,f;
+    char ad,bd,cd,dd,ed,fd;
+
 
 
     if(giris[0]=='y'||giris[0]=='Y')
@@ -127,62 +123,75 @@ int main()
     }
     if(giris[0]=='i'||giris[0]=='I')
     {
-        FILE *deger_devre;
-        if ((deger_devre = fopen("deger_devre.txt", "r")) == NULL)
+        FILE *ptDosya;
+        if ((ptDosya = fopen("deger_devre.txt", "r")) == NULL)
         {
             printf("Dosyayi acarken hata olustu!\a\a");
             exit(1);
         }
+        char ch;
         struct deger_devres1 k;
-        deger_devre=fopen("deger_devre.txt","w");
-        fputs("a    0\n",deger_devre);
-        fputs("b    0\n",deger_devre);
-        fputs("c    1\n",deger_devre);
-        fputs("d    1\n",deger_devre);
-        fputs("e    1\n",deger_devre);
-        fputs("f    0\n",deger_devre);
+        struct deger_devres2 t;
+        struct deger_devres3 x;
+        struct deger_devres4 y;
+        struct deger_devres5 u;
+        struct deger_devres6 z;
 
-        deger_devre=fopen("deger_devre.txt","r");
-        fscanf(deger_devre,"%c",k.c1);//ÇALIŞMIYOR
-        //fgets(deger_devre,"%s",k.tab);
-        //fscanf(deger_devre,"%d",k.deger1);
+        ptDosya=fopen("deger_devre.txt","r");
+        fputs("a    0\n",ptDosya);
+        fputs("b    0\n",ptDosya);
+        fputs("c    1\n",ptDosya);
+        fputs("d    1\n",ptDosya);
+        fputs("e    1\n",ptDosya);
+        fputs("f    0\n",ptDosya);
+        do{
+            ch=getc(ptDosya);
+            printf("%c",ch);
+        }while(ch!=EOF);
 
-        printf("%c",k.c1);//CALIŞMIYOR.
-        //printf("%d",k.deger1);
-        
+        ptDosya=fopen("deger_devre.txt","r");
 
-       // goto up;
+        k.c1=getc(ptDosya);
+        a=k.c1;
+        fgets(k.tab, 5, ptDosya);
+        k.deger1=getc(ptDosya);
+        ad=k.deger1;
+
+        t.c2=getc(ptDosya);
+        b=t.c2;
+        fgets(t.tab,5,ptDosya);
+        t.deger2=getc(ptDosya);
+        bd=t.deger2;
+
+        x.c3=getc(ptDosya);
+        c=x.c3;
+        fgets(x.tab,5,ptDosya);
+        x.deger3=getc(ptDosya);
+        cd=x.deger3;
+
+        y.c4=getc(ptDosya);
+        d=y.c4;
+        fgets(y.tab,5,ptDosya);
+        y.deger4=getc(ptDosya);
+        dd=y.deger4;
+
+        u.c5=getc(ptDosya);
+        e=u.c5;
+        fgets(u.tab,5,ptDosya);
+        u.deger5=getc(ptDosya);
+        ed=u.deger5;
+
+        z.c6=getc(ptDosya);
+        f=z.c6;
+        fgets(z.tab,5,ptDosya);
+        z.deger6=getc(ptDosya);
+        fd=z.deger6;
 
     }
 
     if(giris[0]=='h'||giris[0]=='H')
     {
-
-        int num=0,sayac=0;
-        printf("devredeki kac elemanin degerini degistireceksiniz?:");
-        scanf("%d",&num);
-        printf("Degerini degistireceginiz elemanlari giriniz:");
-        for(i=0;i<(num*2);i++){
-            scanf("%c",&girisler[i]);
-        }
-        for(i=0;i<(num*2);i++){
-            if(girisler[i]!=NULL)
-                sayac++;
-        }
-        printf("Degistirilecek olanlar\n");
-        for(i=0;i<sayac;i++){
-            printf("%c  ",girisler[i]);
-        }
-
-
-
-        /*ptr = (char*) malloc(num * sizeof(char));  // malloc hallet        //ayny cozumu 4. maddede de yap
-        for(i = 0; i < num; ++i)
-        {  printf("lojik-1 yapmak istediginiz degeri/degerleri giriniz: ");
-            scanf("%d", ptr + i);
-        }
-        free(ptr);
-        //girilen degeri/degerleri 1 yapacak*/
+        
         goto up;
     }
 
@@ -243,7 +252,8 @@ int main()
         printf("\nBenzetimden cikiliyor...\n");
         exit(0);
 
-    }
+}
+
 
 
 
