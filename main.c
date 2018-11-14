@@ -4,16 +4,6 @@
 #include <string.h>
 
 
- //.kapi <kapı tipi> <giriş sayısı> <çıkış> <giriş listesi> <kapının girişlere cevap verme süresi>
-
-
-int logTime(int *g)
-{#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <string.h>
-
-
  //.kapi <kapý tipi> <giriþ sayýsý> <çýkýþ> <giriþ listesi> <kapýnýn giriþlere cevap verme süresi>
 struct deger_devres1{
     char c1;
