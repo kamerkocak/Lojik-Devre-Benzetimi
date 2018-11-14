@@ -76,7 +76,7 @@ int logTime(char g[3])
  	
 	
   FILE *timelog;
-  timelog= fopen("timeabc.txt","a+");
+  timelog= fopen("logKomut.txt","a+");
   
   fputs(g, timelog);
   time_t result;
