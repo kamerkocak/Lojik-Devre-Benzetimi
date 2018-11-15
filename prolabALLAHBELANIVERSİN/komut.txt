@@ -1,0 +1,4 @@
+Y	devre.txt
+I	deger.txt
+G*	
+G	a
