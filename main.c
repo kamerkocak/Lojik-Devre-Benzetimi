@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <string.h>
-
+#include <time.h>
 
  //.kapi <kapý tipi> <giriþ sayýsý> <çýkýþ> <giriþ listesi> <kapýnýn giriþlere cevap verme süresi>
 struct deger_devres1{
@@ -86,14 +86,14 @@ int logTime(char g[3])
 int main()
 {
     int i;
-    char giris[3];
+    char giris[9];
     printf("Lojik Devre Benzetimi Programina Hos Geldiniz...\n\n");
     printf("Program ile ne yapmak istiyorsaniz lutfen komutunu giriniz.\n\n");
     printf("\n\t  KOMUTLAR\t\t\t\n\n");
     printf("	Y    I     H\n\n	L    S     G\n\n	G*   K     C\n\n");
 
     up: printf(">");
-    scanf("%s",&giris);
+    gets(giris);
     logTime(giris);
 
 
@@ -114,7 +114,7 @@ int main()
         }
 
             // reads text until newline    https://www.programiz.com/c-programming/examples/read-file
-        fscanf(devre,"%[^\0]", c); //^\n olursa newline'a kadar okur, \0 oldugunda sonlandyrma karakterine kadar okuyor.
+        fscanf(devre,"%[^\0]", c); //^\n olursa newline'a kadar okur, \0 oldugunda sonlandyrma karakterine kadar okuyor
 
         printf("%s\n\n", c);
         fclose(devre);
@@ -187,23 +187,157 @@ int main()
         z.deger6=getc(ptDosya);
         fd=z.deger6;
 
+        goto up;
     }
 
     if(giris[0]=='h'||giris[0]=='H')
     {
-        
+
+        char *degisecekler;
+        char *pch;
+        int sayac=1,i;
+        pch=strtok(giris," ");
+        while(pch!=NULL){
+            degisecekler=pch;
+            sayac++;
+            pch=strtok(NULL," ");
+        }
+
+            if(degisecekler[0]=='a'){
+                ad=1;
+                bd=0;
+                cd=1;
+                dd=1;
+                ed=1;
+                fd=0;
+            }else if(degisecekler[0]=='b'){
+                ad=0;
+                bd=1;
+                cd=1;
+                dd=1;
+                ed=1;
+                fd=0;
+            }else if(degisecekler[0]=='f'){
+                ad=0;
+                bd=0;
+                cd=1;
+                dd=1;
+                ed=1;
+                fd=1;
+            }else if(degisecekler[0]=='c'||degisecekler[0]=='d'||degisecekler[0]=='e'){
+                ad=0;
+                bd=0;
+                cd=1;
+                dd=1;
+                ed=1;
+                fd=0;
+            }
+        FILE *devre=fopen("deger_devre.txt","w");
+        fprintf(devre,"a   %d\n",ad);
+        fprintf(devre,"b   %d\n",bd);
+        fprintf(devre,"c   %d\n",cd);
+        fprintf(devre,"d   %d\n",dd);
+        fprintf(devre,"e   %d\n",ed);
+        fprintf(devre,"f   %d\n",fd);
+
         goto up;
     }
 
     if(giris[0]=='l'||giris[0]=='L')
     {
+        char *degisecekler;
+        char *pch;
+        int sayac=1,i;
+        pch=strtok(giris," ");
+        while(pch!=NULL){
+            degisecekler=pch;
+            sayac++;
+            pch=strtok(NULL," ");
+        }
 
-        //girilen degeri/degerleri 0 yapacak
+            if(degisecekler[0]=='c'){
+                ad=0;
+                bd=0;
+                cd=0;
+                dd=1;
+                ed=1;
+                fd=0;
+            }else if(degisecekler[0]=='d'){
+                ad=0;
+                bd=0;
+                cd=1;
+                dd=0;
+                ed=1;
+                fd=0;
+            }else if(degisecekler[0]=='e'){
+                ad=0;
+                bd=0;
+                cd=1;
+                dd=1;
+                ed=0;
+                fd=0;
+            }else if(degisecekler[0]=='a'||degisecekler[0]=='b'||degisecekler[0]=='f'){
+                ad=0;
+                bd=0;
+                cd=1;
+                dd=1;
+                ed=1;
+                fd=0;
+            }
+        FILE *devre=fopen("deger_devre.txt","w");
+        fprintf(devre,"a   %d\n",ad);
+        fprintf(devre,"b   %d\n",bd);
+        fprintf(devre,"c   %d\n",cd);
+        fprintf(devre,"d   %d\n",dd);
+        fprintf(devre,"e   %d\n",ed);
+        fprintf(devre,"f   %d\n",fd);
+
         goto up;
     }
 
     if(giris[0]=='s'||giris[0]=='S')
     {
+        //xorgate
+        if(dd==0 && ed==0){
+            fd=0;
+        }else if(dd==0 && ed==1){
+            fd=1;
+        }else if(dd==1 && ed==0){
+            fd=1;
+        }else if(dd==1 && ed==1){
+            fd=0;
+        }
+
+        //nandgate
+        if(bd==0 && cd==0){
+            ed=1;
+        }else if(bd==0 && cd==1){
+            ed=1;
+        }else if(bd==1 && cd==0){
+            ed=1;
+        }else if(bd==1 && cd==1){
+            ed=0;
+        }
+
+
+        //norgate
+        if(ad==0 && bd==0){
+            dd=1;
+        }else if(ad==0 && bd==1){
+            dd=0;
+        }else if(ad==1 && bd==0){
+            dd=0;
+        }else if(ad==1 && bd==1){
+            dd=0;
+        }
+
+        FILE *devre=fopen("deger_devre.txt","w");
+        fprintf(devre,"a   %d\n",ad);
+        fprintf(devre,"b   %d\n",bd);
+        fprintf(devre,"c   %d\n",cd);
+        fprintf(devre,"d   %d\n",dd);
+        fprintf(devre,"e   %d\n",ed);
+        fprintf(devre,"f   %d\n",fd);
 
         //devreyi simule eder(calistirir)
         goto up;
@@ -211,8 +345,28 @@ int main()
 
     if(giris[0]=='g'||giris[0]=='G')
     {
-
-
+        char *uc;
+        char *pch;
+        int sayac=1,i;
+        pch=strtok(giris," ");
+        while(pch!=NULL){
+            uc=pch;
+            sayac++;
+            pch=strtok(NULL," ");
+        }
+        if(uc[0]=='a'){
+            printf("%d\n",ad);
+        }else if(uc[0]=='b'){
+            printf("%d\n",bd);
+        }else if(uc[0]=='c'){
+            printf("%d\n",cd);
+        }else if(uc[0]=='d'){
+            printf("%d\n",dd);
+        }else if(uc[0]=='e'){
+            printf("%d\n",ed);
+        }else if(uc[0]=='f'){
+            printf("%d\n",fd);
+        }
         //girilen uclaryn degerlerini konsolda gosterir
         goto up;
     }
