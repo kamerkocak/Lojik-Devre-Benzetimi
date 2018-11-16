@@ -199,7 +199,7 @@ int logTime(char g[9])//	https://en.wikibooks.org/wiki/C_Programming/time.h
   	fputs(g,timelog);
 	fputs("\t",timelog);
 	//buraya degerlere ne yapýldigi yazilacak
-	fputs("\t",timelog);
+	fputs("\t\t\t",timelog);
 	fputs(asctime(brokentime),timelog);
 	fputs("\n",timelog);
   }
@@ -525,6 +525,34 @@ int main()
 
     if(giris[0]=='s'||giris[0]=='S')
     {
+        /* FILE *timelog;
+        timelog= fopen("logKomut.txt","a+");
+        if(pch2!=NULL){
+        if(pch2[0]=='a'){
+            fputs("0ns: a 0->1                  3ns: d 1->0                 4ns: f 0->1\n",timelog);
+        }else if(pch2[0]=='b'){
+            fputs("0ns: b 0->1                  1ns: e 1->0                 3ns: d 1->0                 4ns: f 0->1\n",timelog);
+        }else if(pch2[0]=='f'){
+            fputs("0ns: f 0->1\n",timelog);
+        }
+        }
+        fclose(timelog);
+
+
+        FILE *timelog1;
+        timelog1= fopen("logKomut.txt","a+");
+        if(pch3!=NULL){
+        if(pch3[0]=='c'){
+            fputs("0ns: c 1->0\n",timelog);
+        }else if(pch3[0]=='d'){
+            fputs("0ns: d 1->0                  1ns: f 0->1\n",timelog);
+        }else if(pch3[0]=='e'){
+            fputs("0ns: e 1->0                  1ns: f 0->1\n",timelog);
+        }
+        }
+        fclose(timelog1);*/
+
+
         //xorgate
         if(dd==0 && ed==0){
             fd=0;
