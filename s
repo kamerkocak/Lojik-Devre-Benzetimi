@@ -1,3 +1,5 @@
+/*
+
 FILE *timelog;
         timelog= fopen("logKomut.txt","a+");
         if(pch2!=NULL){
@@ -24,3 +26,4 @@ FILE *timelog;
         }
         }
         fclose(timelog1);
+*/
