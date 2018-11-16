@@ -90,7 +90,7 @@ int logTime(char g[9])//	https://en.wikibooks.org/wiki/C_Programming/time.h
   	fputs(g,timelog); 
 	fputs("\t",timelog);
 	fputs("degerler atandi",timelog);
-	fputs("\t\t\t\t",timelog);
+	fputs("\t\t",timelog);
 	fputs(asctime(brokentime),timelog);
 	fputs("\n",timelog);
   }
@@ -104,59 +104,34 @@ int logTime(char g[9])//	https://en.wikibooks.org/wiki/C_Programming/time.h
 	if((g[2]=='a')&&((g[3]!='b')||g[3]!='c'||g[3]!='d'||g[3]!='e'||g[3]!='f'))
 	{
 		fputs("a girisi birlendi",timelog);
-		fputs("\t\t",timelog);
+		//fputs("\t\t",timelog);
 	}
 	
 	if((g[2]=='b')&&((g[3]!='a')||g[3]!='c'||g[3]!='d'||g[3]!='e'||g[3]!='f'))
 	{
 		fputs("b girisi birlendi",timelog);
-		fputs("\t\t",timelog);
+		//fputs("\t\t",timelog);
 	}
 	if((g[2]=='c')&&((g[3]!='b')||g[3]!='a'||g[3]!='d'||g[3]!='e'||g[3]!='f'))
 	{
 		fputs("c girisi birlendi",timelog);
-		fputs("\t\t",timelog);
+		//fputs("\t\t",timelog);
 	}
 	if((g[2]=='d')&&((g[3]!='b')||g[3]!='c'||g[3]!='a'||g[3]!='e'||g[3]!='f'))
 	{
 		fputs("d girisi birlendi",timelog);
-		fputs("\t\t",timelog);
+		//fputs("\t\t",timelog);
 	}
 	if((g[2]=='e')&&((g[3]!='b')||g[3]!='c'||g[3]!='d'||g[3]!='a'||g[3]!='f'))
 	{
 		fputs("e girisi birlendi",timelog);
-		fputs("\t\t",timelog);
+		//fputs("\t\t",timelog);
 	}
 	if((g[2]=='f')&&((g[3]!='b')||g[3]!='c'||g[3]!='d'||g[3]!='e'||g[3]!='a'))
 	{
 		fputs("f girisi birlendi",timelog);
-		fputs("\t\t",timelog);
+		//fputs("\t\t",timelog);
 	}
-	
-	
-	
-	if(((g[2]=='a'&&g[3]=='b')||(g[2]=='b'&&g[3]=='a'))&&(g[4]!='c'||g[4]!='d'||g[4]!='e'||g[4]!='f'))
-	{
-		fputs(",b girisi birlendi",timelog);
-	}
-	if(((g[2]=='a'&&g[3]=='c')||(g[2]=='c'&&g[3]=='a'))&&(g[4]!='c'||g[4]!='d'||g[4]!='e'||g[4]!='f'))
-	{
-		fputs(",c girisi birlendi",timelog);
-	}
-	if(((g[2]=='a'&&g[3]=='d')||(g[2]=='d'&&g[3]=='a'))&&(g[4]!='c'||g[4]!='b'||g[4]!='e'||g[4]!='f'))
-	{
-		fputs(",d girisi birlendi",timelog);
-	}
-	if(((g[2]=='a'&&g[3]=='e')||(g[2]=='e'&&g[3]=='a'))&&(g[4]!='c'||g[4]!='d'||g[4]!='b'||g[4]!='f'))
-	{
-		fputs(",e girisi birlendi",timelog);
-	}
-	if(((g[2]=='a'&&g[3]=='f')||(g[2]=='f'&&g[3]=='a'))&&(g[4]!='c'||g[4]!='d'||g[4]!='e'||g[4]!='b'))
-	{
-		fputs(",f girisi birlendi",timelog);
-	}
-	
-	
 	
 	
 	
@@ -167,7 +142,8 @@ int logTime(char g[9])//	https://en.wikibooks.org/wiki/C_Programming/time.h
   }
   
   if(g[0]=='l'||g[0]=='L')
-  {
+  {	
+  	
   	fputs(g,timelog); 
 	fputs("\t",timelog);
 	
@@ -175,57 +151,38 @@ int logTime(char g[9])//	https://en.wikibooks.org/wiki/C_Programming/time.h
 	if((g[2]=='a')&&((g[3]!='b')||g[3]!='c'||g[3]!='d'||g[3]!='e'||g[3]!='f'))
 	{
 		fputs("a girisi sifirlandi",timelog);
-		fputs("\t\t\t\t",timelog);
+		//fputs("\t\t\t\t",timelog);
 	}
 	
 	if((g[2]=='b')&&((g[3]!='a')||g[3]!='c'||g[3]!='d'||g[3]!='e'||g[3]!='f'))
 	{
 		fputs("b girisi sifirlandi",timelog);
-		fputs("\t\t",timelog);
+		//fputs("\t\t",timelog);
 	}
 	if((g[2]=='c')&&((g[3]!='b')||g[3]!='a'||g[3]!='d'||g[3]!='e'||g[3]!='f'))
 	{
 		fputs("c girisi sifirlandi",timelog);
-		fputs("\t\t",timelog);
+		//fputs("\t\t",timelog);
 	}
 	if((g[2]=='d')&&((g[3]!='b')||g[3]!='c'||g[3]!='a'||g[3]!='e'||g[3]!='f'))
 	{
 		fputs("d girisi sifirlandi",timelog);
-		fputs("\t\t",timelog);
+		//fputs("\t\t",timelog);
 	}
 	if((g[2]=='e')&&((g[3]!='b')||g[3]!='c'||g[3]!='d'||g[3]!='a'||g[3]!='f'))
 	{
 		fputs("e girisi sifirlandi",timelog);
-		fputs("\t\t",timelog);
+		//fputs("\t\t",timelog);
 	}
 	if((g[2]=='f')&&((g[3]!='b')||g[3]!='c'||g[3]!='d'||g[3]!='e'||g[3]!='a'))
 	{
 		fputs("f girisi sifirlandi",timelog);
-		fputs("\t\t",timelog);
+		//fputs("\t\t",timelog);
 	}
 	
 	
 	
-	if(((g[2]=='a'&&g[3]=='b')||(g[2]=='b'&&g[3]=='a'))&&(g[4]!='c'||g[4]!='d'||g[4]!='e'||g[4]!='f'))
-	{
-		fputs(",b girisi sifirlandi",timelog);
-	}
-	if(((g[2]=='a'&&g[3]=='c')||(g[2]=='c'&&g[3]=='a'))&&(g[4]!='c'||g[4]!='d'||g[4]!='e'||g[4]!='f'))
-	{
-		fputs(",c girisi sifirlandi",timelog);
-	}
-	if(((g[2]=='a'&&g[3]=='d')||(g[2]=='d'&&g[3]=='a'))&&(g[4]!='c'||g[4]!='b'||g[4]!='e'||g[4]!='f'))
-	{
-		fputs(",d girisi sifirlandi",timelog);
-	}
-	if(((g[2]=='a'&&g[3]=='e')||(g[2]=='e'&&g[3]=='a'))&&(g[4]!='c'||g[4]!='d'||g[4]!='b'||g[4]!='f'))
-	{
-		fputs(",e girisi sifirlandi",timelog);
-	}
-	if(((g[2]=='a'&&g[3]=='f')||(g[2]=='f'&&g[3]=='a'))&&(g[4]!='c'||g[4]!='d'||g[4]!='e'||g[4]!='b'))
-	{
-		fputs(",f girisi sifirlandi",timelog);
-	}
+	
 	
 	
 	
@@ -238,6 +195,7 @@ int logTime(char g[9])//	https://en.wikibooks.org/wiki/C_Programming/time.h
   
   if(g[0]=='s'||g[0]=='S')
   {
+	
   	fputs(g,timelog); 
 	fputs("\t",timelog);
 	//buraya degerlere ne yapıldigi yazilacak
@@ -260,7 +218,7 @@ int logTime(char g[9])//	https://en.wikibooks.org/wiki/C_Programming/time.h
 	fputs(GYildiz,timelog);
 	
 	//buraya guncel degerler yan yana yazilacak
-	fputs("\t\t",timelog);
+	fputs("\t\t\t\t",timelog);
 	fputs(asctime(brokentime),timelog);
 	fputs("\n",timelog);
   }
@@ -270,7 +228,7 @@ int logTime(char g[9])//	https://en.wikibooks.org/wiki/C_Programming/time.h
   	fputs(g,timelog); 
 	fputs("\t",timelog);
 	//buraya hangi degerin gosterilmesini istendigi ve son guncel degeri yazilacak
-	fputs("\t\t\t\t\t",timelog);
+	fputs("\t\t\t",timelog);
 	fputs(asctime(brokentime),timelog);
 	fputs("\n",timelog);
   }
@@ -279,7 +237,7 @@ int logTime(char g[9])//	https://en.wikibooks.org/wiki/C_Programming/time.h
   if((g[0]=='k'||g[0]=='K'))
   {
     fputs(g,timelog); 
-	fputs("\t",timelog);
+	fputs("\t\t\t\t",timelog);
 	fputs(asctime(brokentime),timelog);
 	fputs("\n",timelog);
   	
@@ -288,7 +246,7 @@ int logTime(char g[9])//	https://en.wikibooks.org/wiki/C_Programming/time.h
 	if((g[0])=='c'||g[0]=='C')
 	{
 		fputs(g,timelog); 
-		fputs("\t",timelog);
+		fputs("\t\t\t\t",timelog);
 		fputs(asctime(brokentime),timelog);
 		fputs("\n",timelog);
 		
