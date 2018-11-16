@@ -3,8 +3,6 @@
 #include <string.h>
 #include <string.h>
 #include <time.h>
-
- //.kapi <kapý tipi> <giriþ sayýsý> <çýkýþ> <giriþ listesi> <kapýnýn giriþlere cevap verme süresi>
 struct deger_devres1{
     char c1;
     char tab[5];
@@ -69,19 +67,236 @@ struct devres5{
     char girisch2;
 };
 
-int logTime(char g[3])
+int logTime(char g[9])//	https://en.wikibooks.org/wiki/C_Programming/time.h
 {
   FILE *timelog;
   timelog= fopen("logKomut.txt","a+");
-
-  fputs(g, timelog);
   time_t result;
   result = time(NULL);
   struct tm* brokentime = localtime(&result);
-  fputs("\t",timelog);
-  fprintf(timelog,asctime(brokentime));
-  fputs("\n\n\n\n",timelog);
-  fclose(timelog);
+  
+  if(g[0]=='y'||g[0]=='Y')
+  {
+  	fputs(g,timelog); 
+	fputs("\t",timelog);
+	fputs("devre.txt yuklendi",timelog);
+	fputs("\t",timelog);
+	fputs(asctime(brokentime),timelog);
+	fputs("\n",timelog);
+  }
+  
+  if(g[0]=='i'||g[0]=='I')
+  {
+  	fputs(g,timelog); 
+	fputs("\t",timelog);
+	fputs("degerler atandi",timelog);
+	fputs("\t\t\t\t",timelog);
+	fputs(asctime(brokentime),timelog);
+	fputs("\n",timelog);
+  }
+  
+  if(g[0]=='h'||g[0]=='H')
+  {	
+  	fputs(g,timelog); 
+	fputs("\t",timelog);
+
+	
+	if((g[2]=='a')&&((g[3]!='b')||g[3]!='c'||g[3]!='d'||g[3]!='e'||g[3]!='f'))
+	{
+		fputs("a girisi birlendi",timelog);
+		fputs("\t\t",timelog);
+	}
+	
+	if((g[2]=='b')&&((g[3]!='a')||g[3]!='c'||g[3]!='d'||g[3]!='e'||g[3]!='f'))
+	{
+		fputs("b girisi birlendi",timelog);
+		fputs("\t\t",timelog);
+	}
+	if((g[2]=='c')&&((g[3]!='b')||g[3]!='a'||g[3]!='d'||g[3]!='e'||g[3]!='f'))
+	{
+		fputs("c girisi birlendi",timelog);
+		fputs("\t\t",timelog);
+	}
+	if((g[2]=='d')&&((g[3]!='b')||g[3]!='c'||g[3]!='a'||g[3]!='e'||g[3]!='f'))
+	{
+		fputs("d girisi birlendi",timelog);
+		fputs("\t\t",timelog);
+	}
+	if((g[2]=='e')&&((g[3]!='b')||g[3]!='c'||g[3]!='d'||g[3]!='a'||g[3]!='f'))
+	{
+		fputs("e girisi birlendi",timelog);
+		fputs("\t\t",timelog);
+	}
+	if((g[2]=='f')&&((g[3]!='b')||g[3]!='c'||g[3]!='d'||g[3]!='e'||g[3]!='a'))
+	{
+		fputs("f girisi birlendi",timelog);
+		fputs("\t\t",timelog);
+	}
+	
+	
+	
+	if(((g[2]=='a'&&g[3]=='b')||(g[2]=='b'&&g[3]=='a'))&&(g[4]!='c'||g[4]!='d'||g[4]!='e'||g[4]!='f'))
+	{
+		fputs(",b girisi birlendi",timelog);
+	}
+	if(((g[2]=='a'&&g[3]=='c')||(g[2]=='c'&&g[3]=='a'))&&(g[4]!='c'||g[4]!='d'||g[4]!='e'||g[4]!='f'))
+	{
+		fputs(",c girisi birlendi",timelog);
+	}
+	if(((g[2]=='a'&&g[3]=='d')||(g[2]=='d'&&g[3]=='a'))&&(g[4]!='c'||g[4]!='b'||g[4]!='e'||g[4]!='f'))
+	{
+		fputs(",d girisi birlendi",timelog);
+	}
+	if(((g[2]=='a'&&g[3]=='e')||(g[2]=='e'&&g[3]=='a'))&&(g[4]!='c'||g[4]!='d'||g[4]!='b'||g[4]!='f'))
+	{
+		fputs(",e girisi birlendi",timelog);
+	}
+	if(((g[2]=='a'&&g[3]=='f')||(g[2]=='f'&&g[3]=='a'))&&(g[4]!='c'||g[4]!='d'||g[4]!='e'||g[4]!='b'))
+	{
+		fputs(",f girisi birlendi",timelog);
+	}
+	
+	
+	
+	
+	
+	//buraya yukseltgenen degeri yazacaksin
+	fputs("\t",timelog);
+	fputs(asctime(brokentime),timelog);
+	fputs("\n",timelog);
+  }
+  
+  if(g[0]=='l'||g[0]=='L')
+  {
+  	fputs(g,timelog); 
+	fputs("\t",timelog);
+	
+	
+	if((g[2]=='a')&&((g[3]!='b')||g[3]!='c'||g[3]!='d'||g[3]!='e'||g[3]!='f'))
+	{
+		fputs("a girisi sifirlandi",timelog);
+		fputs("\t\t\t\t",timelog);
+	}
+	
+	if((g[2]=='b')&&((g[3]!='a')||g[3]!='c'||g[3]!='d'||g[3]!='e'||g[3]!='f'))
+	{
+		fputs("b girisi sifirlandi",timelog);
+		fputs("\t\t",timelog);
+	}
+	if((g[2]=='c')&&((g[3]!='b')||g[3]!='a'||g[3]!='d'||g[3]!='e'||g[3]!='f'))
+	{
+		fputs("c girisi sifirlandi",timelog);
+		fputs("\t\t",timelog);
+	}
+	if((g[2]=='d')&&((g[3]!='b')||g[3]!='c'||g[3]!='a'||g[3]!='e'||g[3]!='f'))
+	{
+		fputs("d girisi sifirlandi",timelog);
+		fputs("\t\t",timelog);
+	}
+	if((g[2]=='e')&&((g[3]!='b')||g[3]!='c'||g[3]!='d'||g[3]!='a'||g[3]!='f'))
+	{
+		fputs("e girisi sifirlandi",timelog);
+		fputs("\t\t",timelog);
+	}
+	if((g[2]=='f')&&((g[3]!='b')||g[3]!='c'||g[3]!='d'||g[3]!='e'||g[3]!='a'))
+	{
+		fputs("f girisi sifirlandi",timelog);
+		fputs("\t\t",timelog);
+	}
+	
+	
+	
+	if(((g[2]=='a'&&g[3]=='b')||(g[2]=='b'&&g[3]=='a'))&&(g[4]!='c'||g[4]!='d'||g[4]!='e'||g[4]!='f'))
+	{
+		fputs(",b girisi sifirlandi",timelog);
+	}
+	if(((g[2]=='a'&&g[3]=='c')||(g[2]=='c'&&g[3]=='a'))&&(g[4]!='c'||g[4]!='d'||g[4]!='e'||g[4]!='f'))
+	{
+		fputs(",c girisi sifirlandi",timelog);
+	}
+	if(((g[2]=='a'&&g[3]=='d')||(g[2]=='d'&&g[3]=='a'))&&(g[4]!='c'||g[4]!='b'||g[4]!='e'||g[4]!='f'))
+	{
+		fputs(",d girisi sifirlandi",timelog);
+	}
+	if(((g[2]=='a'&&g[3]=='e')||(g[2]=='e'&&g[3]=='a'))&&(g[4]!='c'||g[4]!='d'||g[4]!='b'||g[4]!='f'))
+	{
+		fputs(",e girisi sifirlandi",timelog);
+	}
+	if(((g[2]=='a'&&g[3]=='f')||(g[2]=='f'&&g[3]=='a'))&&(g[4]!='c'||g[4]!='d'||g[4]!='e'||g[4]!='b'))
+	{
+		fputs(",f girisi sifirlandi",timelog);
+	}
+	
+	
+	
+	
+//buraya alcaltilan degeri yazacaksin
+	fputs("\t",timelog);
+	fputs(asctime(brokentime),timelog);
+	fputs("\n",timelog);
+  }
+  
+  if(g[0]=='s'||g[0]=='S')
+  {
+  	fputs(g,timelog); 
+	fputs("\t",timelog);
+	//buraya degerlere ne yapıldigi yazilacak
+	fputs("\t",timelog);
+	fputs(asctime(brokentime),timelog);
+	fputs("\n",timelog);
+  }
+  
+   if((g[0]=='g'||g[0]=='G')&&g[1]=='*')
+  {
+  		char GYildiz[100];
+        FILE *deger;
+        deger= fopen("deger.txt","r");
+        fscanf(deger,"%[^\0]", GYildiz); 
+        fclose(deger);
+    
+        	
+  	fputs(g,timelog); 
+	fputs("\n",timelog);
+	fputs(GYildiz,timelog);
+	
+	//buraya guncel degerler yan yana yazilacak
+	fputs("\t\t",timelog);
+	fputs(asctime(brokentime),timelog);
+	fputs("\n",timelog);
+  }
+  
+   if((g[0]=='g'||g[0]=='G')&&g[1]!='*')
+  {
+  	fputs(g,timelog); 
+	fputs("\t",timelog);
+	//buraya hangi degerin gosterilmesini istendigi ve son guncel degeri yazilacak
+	fputs("\t\t\t\t\t",timelog);
+	fputs(asctime(brokentime),timelog);
+	fputs("\n",timelog);
+  }
+  
+  
+  if((g[0]=='k'||g[0]=='K'))
+  {
+    fputs(g,timelog); 
+	fputs("\t",timelog);
+	fputs(asctime(brokentime),timelog);
+	fputs("\n",timelog);
+  	
+  }
+	
+	if((g[0])=='c'||g[0]=='C')
+	{
+		fputs(g,timelog); 
+		fputs("\t",timelog);
+		fputs(asctime(brokentime),timelog);
+		fputs("\n",timelog);
+		
+	}
+	
+	fclose(timelog);
+	
+	
 }
 int main()
 {
@@ -92,7 +307,7 @@ int main()
     printf("\n\t  KOMUTLAR\t\t\t\n\n");
     printf("	Y    I     H\n\n	L    S     G\n\n	G*   K     C\n\n");
 
-    up: printf(">");
+    up: printf("\n>");
     gets(giris);
     logTime(giris);
 
@@ -105,7 +320,7 @@ int main()
     if(giris[0]=='y'||giris[0]=='Y')
     {
         //TUM DOSYA ICERIGINI YAZDIRMAK
-        char c[1000];
+        /*char c[1000];
         FILE *devre;
         if ((devre = fopen("devre.txt", "r")) == NULL)
         {
@@ -114,10 +329,39 @@ int main()
         }
 
             // reads text until newline    https://www.programiz.com/c-programming/examples/read-file
-        fscanf(devre,"%[^\0]", c); //^\n olursa newline'a kadar okur, \0 oldugunda sonlandyrma karakterine kadar okuyor
+        fscanf(devre,"%[^\0]", c); 
 
-        printf("%s\n\n", c);
+        printf("%s\n\n", c);*/
+        
+        struct devres1 dev1;
+		struct devres2 dev2;
+		struct devres3 dev3;
+		struct devres4 dev4;
+		struct devres5 dev5;
+		FILE *devre;
+		if((devre = fopen("devre.txt","r"))==NULL)
+		{	printf("Dosyayi acarken hata olustu!\a\a");
+		exit(1);
+			 }  
+			 fscanf(devre,"%[^#]",dev1.satir1);
+			 printf("%s",dev1.satir1);
+			 fscanf(devre,"%[^\n]",dev1.tab1);
+			 fscanf(devre,"%[^#]",dev2.satir2);
+			 printf("%s",dev2.satir2);
+			 fscanf(devre,"%[^\n]",dev2.cikis);
+			 fscanf(devre,"%[^#]",dev3.satir3);
+			 printf("%s\n",dev3.satir3);		 
+			
         fclose(devre);
+        
+        
+        FILE *komut;
+  		komut= fopen("komut.txt","a+");
+  		fputs("Y",komut);
+  		fputs("\t",komut);
+  		fputs("devre.txt",komut);
+  		fputs("\n",komut);
+  		fclose(komut);
 
         goto up;
     }
@@ -186,6 +430,14 @@ int main()
         fgets(z.tab,5,ptDosya);
         z.deger6=getc(ptDosya);
         fd=z.deger6;
+        
+        FILE *komut;
+  		komut= fopen("komut.txt","a+");
+  		fputs("I",komut);
+  		fputs("\t",komut);
+  		fputs("deger.txt",komut);
+  		fputs("\n",komut);
+  		fclose(komut);
 
         goto up;
     }
@@ -239,6 +491,13 @@ int main()
         fprintf(devre,"d   %d\n",dd);
         fprintf(devre,"e   %d\n",ed);
         fprintf(devre,"f   %d\n",fd);
+        
+         FILE *komut;
+  		komut= fopen("komut.txt","a+");
+  		fputs("H",komut);
+  		fputs("\t",komut);
+  		fputs("\n",komut);
+  		fclose(komut);
 
         goto up;
     }
@@ -291,6 +550,13 @@ int main()
         fprintf(devre,"d   %d\n",dd);
         fprintf(devre,"e   %d\n",ed);
         fprintf(devre,"f   %d\n",fd);
+        
+        FILE *komut;
+  		komut= fopen("komut.txt","a+");
+  		fputs("L",komut);
+  		fputs("\t",komut);
+  		fputs("\n",komut);
+  		fclose(komut);
 
         goto up;
     }
@@ -338,12 +604,21 @@ int main()
         fprintf(devre,"d   %d\n",dd);
         fprintf(devre,"e   %d\n",ed);
         fprintf(devre,"f   %d\n",fd);
+        
+        
+       
+        FILE *komut;
+  		komut= fopen("komut.txt","a+");
+  		fputs("S",komut);
+  		fputs("\t",komut);
+  		fputs("\n",komut);
+  		fclose(komut);
 
         //devreyi simule eder(calistirir)
         goto up;
     }
 
-    if(giris[0]=='g'||giris[0]=='G')
+    if((giris[0]=='g'||giris[0]=='G')&&giris[1]!='*')
     {
         char *uc;
         char *pch;
@@ -367,27 +642,38 @@ int main()
         }else if(uc[0]=='f'){
             printf("%d\n",fd);
         }
+        
+        FILE *komut;
+  		komut= fopen("komut.txt","a+");
+  		fputs("G",komut);
+  		fputs("\t",komut);
+  		fputs("\n",komut);
+  		fclose(komut);
         //girilen uclaryn degerlerini konsolda gosterir
         goto up;
     }
 
-    if(giris[0]=='g'||giris[0]=='G' && giris[1]=='*')   //BURADA BIR SIKINTIVAR AMA COZCEM
-    {   printf("Tum uclarin guncel seviyesi asagida listelenmistir...\n\n");
-        char gyildiz[1000];
-        FILE *deger;
-        if ((deger = fopen("deger.txt", "r")) == NULL)
-        {
-            printf("Dosyayi acarken hata olustu!\a\a");
-            exit(1);
-        }
-
+    if((giris[0]=='g'||giris[0]=='G') && giris[1]=='*')   
+    {   
             // reads text until newline    https://www.programiz.com/c-programming/examples/read-file
-        fscanf(deger,"%[^\0]", gyildiz); //^\n olursa newline'a kadar okur, \0 oldugunda sonlandyrma karakterine kadar okuyor.
-
-        printf("%s\n\n", gyildiz);
-        fclose(deger);
-
-
+        	printf("Tum uclarin guncel seviyesi asagida listelenmistir...\n\n");
+        	char gyildiz[1000];
+        	FILE *deger;
+        	if ((deger = fopen("deger.txt", "r")) == NULL)
+        	{
+            	printf("Dosyayi acarken hata olustu!\a\a");
+            	exit(1);
+        	}
+        	fscanf(deger,"%[^\0]", gyildiz);
+        	printf("%s\n\n", gyildiz);
+        	fclose(deger);
+        	
+			FILE *komut;
+  			komut= fopen("komut.txt","a+");
+  			fputs("G*",komut);
+  			fputs("\t",komut);
+  			fputs("\n",komut);
+  			fclose(komut);
         //tüm uclaryn degerlerini konsolda gosterir
         goto up;
     }
@@ -395,6 +681,17 @@ int main()
     if(giris[0]=='k'||giris[0]=='K')
     {
         //komut.txt icindeki komutlary konsoldan icra eder
+       	char k[1000];
+        FILE *komut;
+        if ((komut = fopen("komut.txt", "r")) == NULL)
+        {
+            printf("Dosyayi acilirken hata olustu!");   // reads text until newline    https://www.programiz.com/c-programming/examples/read-file
+            exit(1);
+        }
+
+        fscanf(komut,"%[^\0]", k); 
+		printf("\n%s\n", k);
+        fclose(komut);
         goto up;
     }
 
@@ -403,13 +700,18 @@ int main()
         //benzetimden cikis yapar
         //bu komut girilene kadar olan tum komutlary log dosyasyna tarih saat dakika olarak kaydet
 
+        FILE *komut;
+  		komut= fopen("komut.txt","a+");
+  		fputs("C",komut);
+  		fputs("\t",komut);
+  		fputs("\n\n",komut);
+  		fclose(komut);
         printf("\nBenzetimden cikiliyor...\n");
         exit(0);
+	}
 
-}
+  return 0;
 
 
-
-
-    return 0;
+  
 }
